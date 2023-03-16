@@ -1,19 +1,25 @@
 import "./App.css";
 import SearchForm from "./SearchForm";
 import React from "react";
+import WeatherInfo from "./WeatherInfo";
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Weather App</h1>
+      <div className="container">
         <SearchForm />
-      </header>
-      <footer>
-        This project was coded by <strong>Melissa Matos</strong> and is
-        <a href="https://github.com/mmatos394/Weather-App">
-          open-sourced on GitHub.
-        </a>
-      </footer>
+        <WeatherInfo />
+        <footer class="myName">
+          This project was coded by <strong>Melissa Matos</strong> and is
+          <a
+            href="https://github.com/mmatos394/Weather-App"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            open-sourced on GitHub.
+          </a>
+        </footer>
+      </div>
     </div>
   );
 }
