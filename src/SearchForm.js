@@ -30,7 +30,7 @@ export default function SearchForm() {
         placeholder="Enter a city..."
         onChange={updateCity}
       />
-      <button type="submit" class="btn btn-light">
+      <button type="submit" class="btn btn-light btn-sm">
         Search
       </button>
     </form>

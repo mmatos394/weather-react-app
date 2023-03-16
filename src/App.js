@@ -6,10 +6,10 @@ import WeatherInfo from "./WeatherInfo";
 function App() {
   return (
     <div className="App">
-      <div className="container">
+      <div className="appContainer">
         <SearchForm />
         <WeatherInfo />
-        <footer class="myName">
+        <footer className="myName">
           This project was coded by <strong>Melissa Matos</strong> and is
           open-sourced on{" "}
           <a

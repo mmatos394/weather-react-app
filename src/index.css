@@ -1,1 +1,28 @@
+body {
+  background-color: #be97dc;
+  font-family: "Rajdhani", sans-serif;
+}
 
+.appContainer {
+  background-color: #eec1ea;
+  border: 1px solid #eec1ea;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  width: 400px;
+}
+
+.appContainer .temp {
+  font-weight: 500;
+  font-size: 70px;
+}
+
+.appContainer li {
+  list-style: none;
+}
+
+.appContainer footer {
+  font-size: small;
+}
