@@ -46,7 +46,10 @@ export default function SearchForm() {
           <li>Humidity: {response.data.temperature.humidity} </li>
           <li>Wind: {wind} </li>
           <li>
-            <img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png" />
+            <img
+              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-night.png"
+              alt="weathericon"
+            />
           </li>
         </ul>
       </div>
