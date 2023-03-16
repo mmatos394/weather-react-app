@@ -11,12 +11,13 @@ function App() {
         <WeatherInfo />
         <footer class="myName">
           This project was coded by <strong>Melissa Matos</strong> and is
+          open-sourced on{" "}
           <a
             href="https://github.com/mmatos394/Weather-App"
             target="_blank"
             rel="noopener noreferrer"
           >
-            open-sourced on GitHub.
+            GitHub.
           </a>
         </footer>
       </div>
