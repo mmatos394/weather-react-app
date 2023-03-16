@@ -1,5 +1,5 @@
 import "./App.css";
-import SearchForm from "./SearchForm";
+
 import React from "react";
 import WeatherInfo from "./WeatherInfo";
 
@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <div className="appContainer">
-        <SearchForm />
         <WeatherInfo />
         <footer className="myName">
           This project was coded by <strong>Melissa Matos</strong> and is
