@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function WeatherInfo() {
-  const [ready, setReady] = useState(false);
-  const [temperature, setTemperature] = useState(null);
+export default function WeatherInfo(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
     console.log(response.data);
-    setTemperature(response.data.temperature);
-    setReady(true);
+    setWeatherData({
+      ready: true,
+      city: response.data.city,
+      temperature: response.data.temperature.current,
+      wind: response.data.wind.speed,
+      humidity: response.data.temperature.humidity,
+      description: response.data.condition.description,
+      icon:
+        "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png",
+      date: "Friday 17th March",
+    });
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div>
         <div className="container text-center">
@@ -32,23 +40,20 @@ export default function WeatherInfo() {
           </div>
         </div>
         <header className="App-header">
-          <h1>Lisbon</h1>
+          <h1>{weatherData.city}</h1>
         </header>
-        <img
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAdVJREFUaN7tmc1thDAQRimBElwCJVBCSvAxR5fgEiiBEiiBErhyIx24A2cc2WhiAf4ZA1rJkZ4UZZPN9/AwHrON1rr5ZJoqUAWqQBWoAlWgxJf++WaAAGZAAdpD2dfM7zDS/yopAGE6YDoIHMLIdK8KQIAWGIAtQ8Bh/r59bQWQjCBILCkSJIF1XVuAA9Jivm9ROd0ukS0AQTtgA7SH+Vn31EoEBSAMA2YUUAHiJDyWcCtBuidIArZEroJewVEpjQSJjiIgMsMbpHdjf53sCcEWSxEYCQKOyZQhkshZBZYkYEtHeLVPQSGJnHIS0QI2/FIo+L+VILTXOUVA3BD+D3Q/pAqoFIEebUxFQQLJN/Ojo0TEqDG/JgBv1hdgeVNAP4CKPSvkCKiCQc1KSMRs2+x902hO/Z4cYFhgWOQHY8zo9hOKgCCGH71BEXcqHjEBKDft5gowypVH4YeLgKE9ZSO10cxz7z7TFJqxOEUgZxyYbPi+0M4uSRuZPYCnCPBA6TwrYCWWyFbJImo/FTMpM6pAG5CYvDO0LDii7x2JNAtdSGxuQyp41Q87UqkHW8NJzYsbw+8d6Y5Hi+7qbw8IyOIPd9HRVD8qUD8fqAJVoApUgSrwqfwCJ6xaZshM+xMAAAAASUVORK5CYII="
-          alt="WeatherIcon"
-        />
+        <img src={weatherData.icon} alt={weatherData.description} />
         <div className="container text-center">
           <div className="row">
             <div className="col-6">
-              <p className="temp">{temperature}</p>
+              <p className="temp">{Math.round(weatherData.temperature)}°C</p>
             </div>
             <div className="col-6">
               <ul className="info">
-                <li>Date</li>
-                <li>Precipitation</li>
-                <li>Humidity</li>
-                <li>Wind</li>
+                <li>{weatherData.date}</li>
+                <li className="text-capitalize">{weatherData.description}</li>
+                <li>Humidity: {weatherData.humidity}%</li>
+                <li>Wind: {Math.round(weatherData.wind)} km/h</li>
               </ul>
             </div>
           </div>
@@ -57,8 +62,9 @@ export default function WeatherInfo() {
     );
   } else {
     let apiKey = "149310df1cftbof1b8c36c6e03299a7d";
-    let city = "Lisbon";
-    let apiURL = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let apiURL = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
     axios.get(apiURL).then(handleResponse);
+
+    return "Loading...";
   }
 }
