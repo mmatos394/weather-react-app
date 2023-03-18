@@ -1,13 +1,13 @@
 import "./App.css";
 
 import React from "react";
-import WeatherInfo from "./WeatherInfo";
+import Weather from "./Weather";
 
 function App() {
   return (
     <div className="App">
       <div className="appContainer">
-        <WeatherInfo defaultCity="Lisbon" />
+        <Weather defaultCity="Lisbon" />
         <footer className="myName">
           This project was coded by <strong>Melissa Matos</strong> and is
           open-sourced on{" "}
