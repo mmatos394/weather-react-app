@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 
 export default function WeatherInfo(props) {
@@ -14,7 +15,7 @@ export default function WeatherInfo(props) {
       description: response.data.condition.description,
       icon:
         "http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png",
-      date: "Friday 17th March",
+      date: new Date(response.data.time * 1000),
     });
   }
 
@@ -50,7 +51,9 @@ export default function WeatherInfo(props) {
             </div>
             <div className="col-6">
               <ul className="info">
-                <li>{weatherData.date}</li>
+                <li>
+                  <FormattedDate date={weatherData.date} />
+                </li>
                 <li className="text-capitalize">{weatherData.description}</li>
                 <li>Humidity: {weatherData.humidity}%</li>
                 <li>Wind: {Math.round(weatherData.wind)} km/h</li>
