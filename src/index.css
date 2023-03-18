@@ -19,6 +19,17 @@ body {
   font-size: 70px;
 }
 
+.appContainer .unit {
+  position: relative;
+  top: -35px;
+  right: -5px;
+}
+
+.appContainer .weatherIcon {
+  position: relative;
+  top: -20px;
+}
+
 .appContainer li {
   list-style: none;
 }
