@@ -41,7 +41,7 @@ export default function Weather(props) {
       <div>
         <div className="container text-center">
           <div className="row">
-            <div className="col-9">
+            <div className="col-8">
               <form onSubmit={handleSubmit}>
                 <input
                   className="form-control form-control-sm"
@@ -54,7 +54,7 @@ export default function Weather(props) {
               <WeatherInfo weatherData={weatherData} />
               <WeatherForecast city={weatherData.city} />
             </div>
-            <div className="col-3">
+            <div className="col-1">
               <button
                 type="submit"
                 className="btn btn-light btn-sm"

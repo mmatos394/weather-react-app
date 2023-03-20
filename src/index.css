@@ -9,9 +9,16 @@ body {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   display: block;
+
   margin: 0 auto;
+  margin-top: 50px;
+  padding: 20px;
   text-align: center;
-  width: 850px;
+  width: 1000px;
+}
+
+.appContainer h1 {
+  line-height: 60px;
 }
 
 .appContainer .temp {
